@@ -1,0 +1,135 @@
+@mixin  media-medium {
+    @media screen and (max-width: 819px){
+        @content;
+    }
+}
+
+@mixin  media-small {
+    @media screen and (max-width: 520px ){
+        @content;
+    }
+}
+
+@mixin transision-ease {
+    transition: all .5s ease-in-out;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    padding: 1rem 5vw;
+}
+
+.wrapper__img{
+    width: 40vw;
+    height: auto;
+}
+
+.wrapper__name{
+    font-size: 2em;
+	font-weight: 700;
+}
+
+.wrapper__rightcolumn{
+    padding: 1vw;
+}
+
+.wrapper__rightcolumn__columns{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.wrapperDark{
+    @extend .wrapper;
+
+    background-color: hsl(209, 23%, 22%);
+    color: #FFFFFF;
+}
+
+.button{
+height: 2.5rem;
+padding: .5rem;
+margin: .5rem;
+background-color: white;
+border-radius: .25rem;
+border: 1px solid black;
+cursor: pointer;
+
+@include transision-ease;
+}
+
+.buttonDark {
+@extend .button;
+
+background-color: #202c37;
+color: #FFFFFF;
+border: none;
+}
+
+.button:hover{
+    transform: scale(1.1);   
+}
+
+
+
+@include media-medium{
+    .wrapper {
+    display: grid;
+    grid-template-columns: 1fr;}
+
+    .wrapper__name{
+        text-align: center;
+    }
+
+    .wrapper__rightcolumn__columns p{
+        width: 35vw;
+        padding: 0 2vw;
+    }
+    .wrapper__borders{
+        text-align: center;
+        padding-bottom: 2rem;
+    }
+
+    .maprouter {
+        padding-top: 0;}
+    
+}
+
+@include media-small{
+    .wrapper__rightcolumn__columns{
+        grid-template-columns: 1fr;
+    }
+
+    .wrapper__rightcolumn__columns p{
+        width: 70vw;      }
+}
+
+.map{
+    padding: 0 5vw;
+    height: 20rem;
+    margin-bottom: 50px;
+}
+
+.mapDark{
+    @extend .map;
+
+    background-color: hsl(209, 23%, 22%);
+    color: #FFFFFF;
+}
+
+.maprouter {
+    display: flex;
+    justify-content: center;
+    position:relative;
+    
+    height:100%;
+    width:100%;
+    padding-top: 1rem;
+    padding-bottom: 30px;
+    .gmap_canvas {overflow:hidden;background:none!important;height:700px;width:1080px;}
+}
+.map__map{
+    width:87.5vw;
+}

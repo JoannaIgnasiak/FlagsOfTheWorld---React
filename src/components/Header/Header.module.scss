@@ -1,0 +1,30 @@
+@mixin  media-small {
+    @media screen and (max-width: 819px){
+        @content;
+    }
+}
+
+@include media-small{
+   
+  .wrapper h1{
+      font-size: 25px;
+  }
+}
+
+.wrapper {
+    padding: 5vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    color: black;
+    font-size: 18px;
+}
+
+.wrapperDark {
+    @extend .wrapper;
+    background-color: hsl(207, 26%, 17%);
+    color: #FFFFFF;
+}

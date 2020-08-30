@@ -1,0 +1,160 @@
+
+@mixin  media-small {
+    @media screen and (max-width: 819px){
+        @content;
+    }
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 3vw 50px;
+    width: 100%;
+    height: auto;
+    background-color: rgba(233, 231, 227, 0.979);
+
+    &__row{
+        display: flex;
+        width: 100%;
+        padding: 0 2vw;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+.wrapperDark{
+    @extend .wrapper;
+
+    background-color: hsl(209, 23%, 22%);
+    color: #FFFFFF;
+}
+
+.wrapper__row__input{
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+   margin-bottom: 1rem;
+}
+
+.wrapperTiles{
+    width: 100%;
+    background-color: rgba(233, 231, 227, 0.979);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding-top: 3em;
+    position: relative;
+    z-index: 0;
+}
+
+.wrapperTilesDark{
+    @extend .wrapperTiles;
+    background-color: hsl(209, 23%, 22%);
+    color: #FFFFFF;
+}
+
+.wrapperfilters{
+    display: flex;
+    flex-direction: row;
+}
+
+.wrapperfiltersDark{
+    background-color: hsl(209, 23%, 22%);
+    color: #FFFFFF;
+}
+
+.filter{
+    display: flex;
+    flex-direction: row;
+    min-width: 10rem;
+    width: max-content;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    padding: .5rem;
+    margin-right: 1rem;
+    margin-left: 2vw;
+    border-radius: .5rem;
+}
+
+.filterDark{
+    @extend .filter;
+
+    background-color: #202c37;
+}
+
+.filterButton{
+width: 2rem;
+height: 2rem;
+background-color: white;
+margin-left: .75rem;
+position: relative;
+
+&::before, 
+    &::after {
+      content: '';
+      width: 16px;
+      height: 2px;
+      position: absolute;
+      background: black;
+      display: block;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0 auto;
+      transform-origin: 50%;}
+
+      &::before {
+        transform: rotate(45deg);
+      }
+      
+      &::after {
+        transform: rotate(-45deg);
+      }
+}
+
+.filterButtonDark{
+    @extend .filterButton;
+    
+    background-color: #2b3945; 
+    &::before, 
+    &::after { background: white;} 
+}
+
+.filterButtonOk{
+    width: auto;
+    height: 2rem;
+    background-color: white;
+    padding: 0 .5rem;
+    margin-left: .75rem;
+
+}
+
+.filterButtonOkDark{
+    @extend .filterButtonOk;
+    color: white;
+    background-color: #2b3945;
+}
+
+
+@include media-small{
+    .wrapper__row{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .wrapper__row__input{
+        left: 0;
+     }
+
+     .filter{
+         margin:  1rem auto 0 auto;
+     }
+
+}

@@ -1,0 +1,106 @@
+@mixin  media-small {
+    @media screen and (max-width: 819px){
+        @content;
+    }
+}
+
+.button{
+    height: 3em;
+    width: 10em;
+    padding-left: 2em;
+    font-size: 1.2em;
+    position: relative;
+    background-color: #FFFFFF;
+    border-radius: .25em;
+    border: 1px solid hsl(0, 0%, 52%);
+    cursor: pointer;
+}
+
+.buttondark{
+    @extend .button;
+    background-color: hsl(209, 23%, 22%);
+    color: white;
+}
+
+.darkmodeButton{
+    height: 3em;
+    width: 10em;
+    padding-left: 2.2em;
+    font-size: 1.2em;
+    position: relative;
+    background-color: #FFFFFF;
+    border-radius: .25em;
+    border: 1px solid hsl(0, 0%, 52%);
+    cursor: pointer;
+    outline: none;
+   
+    &::before{
+        content: "";
+        position: absolute;
+        height: 2em;
+        width: 2em;
+        top: .4em;
+        left: .8em;
+        background-image: url(../../assets/moon.png);
+        background-size: cover;
+    }
+}
+.darkmodeButtondark{
+    @extend .darkmodeButton;
+    background-color: hsl(209, 23%, 22%);
+    color: white;
+    border: none;
+}
+
+.inputSearchButton{
+    background-image: url(../../assets/search.png);
+    background-size: 2rem 2rem;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+    height: 3rem;
+    width: 3rem;
+    padding: .5em;
+    background-color: white;
+    border: none;
+    outline: none;
+    border-bottom-right-radius: .5em;
+    border-top-right-radius: .5em;
+       
+    &:link, &:visited, &:hover, &:active{
+        border: none; 
+        outline: none;
+    }
+}
+
+.inputSearchButtondark{
+    @extend .inputSearchButton;
+    background-color: hsl(207, 26%, 17%);
+}
+
+@include media-small{
+    .darkmodeButton{
+        height: 2.5em;
+        width: 8em;
+        font-size: .9em;
+    
+        &::before{
+            height: 1.5em;
+            width: 1.5em;
+            top: .4em;
+            left: .5em;
+        }
+      }
+      .darkmodeButtondark{
+        height: 2.5em;
+        width: 8em;
+    
+        &::before{
+            height: 1.5em;
+            width: 1.5em;
+            top: .4em;
+            left: .5em;
+        }
+      }
+}
+
